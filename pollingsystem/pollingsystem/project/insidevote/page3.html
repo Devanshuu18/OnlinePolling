@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Your Poll</title>
+  <link rel="stylesheet" href="page3.css">
+</head>
+<body>
+  <div class="container">
+    <div class="info-panel">
+      <h1>Create Your Poll</h1>
+      <p>Craft questions that matter to your campus community.</p>
+
+      <div class="feature-group">
+        <div class="feature-item">
+          <span class="icon">&#128640;</span>
+          <div>
+            <div class="feature-title">Quick &amp; Easy</div>
+            <div class="feature-desc">Create a poll in less than a minute with our simple form.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">&#128257;</span>
+          <div>
+            <div class="feature-title">Share Instantly</div>
+            <div class="feature-desc">Get instant feedback by sharing your poll via QR code or link.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="icon">&#128202;</span>
+          <div>
+            <div class="feature-title">Real-time Results</div>
+            <div class="feature-desc">Watch votes come in and see visualized results immediately.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <h2>New Poll Form</h2>
+      <form class="poll-form">
+        <label for="question">Poll Question</label>
+        <input type="text" id="question" name="question" placeholder="What's your favorite dining hall food?" required>
+
+        <label for="description">Description (Optional)</label>
+        <textarea id="description" name="description" placeholder="Add more context or details about your poll"></textarea>
+        
+        <label>Option 1</label>
+        <input type="text" name="option1">
+
+        <label>Option 2</label>
+        <input type="text" name="option2">
+
+        <div id="extra-options"></div>
+        <button type="button" id="add-option-btn">+ Add Option</button>
+        <button type="submit" class="create-btn">Create Poll</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Dynamically add new option fields
+    document.getElementById('add-option-btn').onclick = function() {
+      var count = document.querySelectorAll('.poll-form input[type="text"]').length + 1;
+      var div = document.createElement('div');
+      var label = document.createElement('label');
+      label.innerText = "Option " + count;
+      var input = document.createElement('input');
+      input.type = "text";
+      input.name = "option" + count;
+      div.appendChild(label);
+      div.appendChild(input);
+      document.getElementById("extra-options").appendChild(div);
+    };
+  </script>
+</body>
+</html>
